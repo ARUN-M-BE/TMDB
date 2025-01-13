@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState } from "react";
 import logo from "../../public/movie-logo.png";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,6 @@ const Navbar = () => {
           className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] shadow-lg shadow-cyan-500/50"
         />
 
-        {/* Menu for larger screens */}
         <div className="hidden md:flex space-x-6 ms-5">
           <Link
             to="/"
@@ -37,7 +36,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Hamburger Menu for mobile */}
         <div className="md:hidden ml-auto">
           <button
             className="text-white focus:outline-none"
@@ -48,7 +46,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div className="flex flex-col items-start bg-gray-700 p-4 space-y-4 md:hidden">
           <Link
