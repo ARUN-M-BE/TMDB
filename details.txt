@@ -1,0 +1,89 @@
+
+Screen Size	Height (h)	Font Size (text-)
+Mobile (default)	h-[30vh]	text-lg
+Small (sm)	h-[40vh]	text-xl
+Medium (md)	h-[60vh]	text-3xl
+Large (lg)	h-[75vh]	text-4xl
+
+
+Navbar
+
+Tailwind Utilities Used
+Utility	Purpose
+hidden md:flex	Hides the menu on small screens.
+md:hidden	Shows the hamburger menu on mobile.
+space-x-8	Horizontal spacing between links.
+space-y-4	Vertical spacing for mobile menu.
+text-lg md:text-2xl	Adjust font size for responsiveness.
+p-5	Padding for the navbar.
+
+curl --request GET \
+     --url 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc' \
+     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMjY3NDJjMGNiMjRkMTAyMzRmYWIxYzJmZTQ5NzIwNSIsIm5iZiI6MTczNjUxODY2Ny42OTcsInN1YiI6IjY3ODEyYzBiYWJhYmJiYTA0MGJhZmNlMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8wMmqrVETXWGLOgxX9Lg0hQIGwGr1UxcnzYqXFY5VVQ' \
+     --header 'accept: application/json'
+Query Params
+language
+string
+Defaults to en-US
+en-US
+page
+int32
+Defaults to 1
+1
+region
+string
+ISO-3166-1 code
+
+Response
+
+200
+200
+
+Response body
+object
+page
+integer
+Defaults to 0
+results
+array of objects
+object
+adult
+boolean
+Defaults to true
+backdrop_path
+string
+genre_ids
+array of integers
+id
+integer
+Defaults to 0
+original_language
+string
+original_title
+string
+overview
+string
+popularity
+number
+Defaults to 0
+poster_path
+string
+release_date
+string
+title
+string
+video
+boolean
+Defaults to true
+vote_average
+number
+Defaults to 0
+vote_count
+integer
+Defaults to 0
+total_pages
+integer
+Defaults to 0
+total_results
+integer
+Defaults to 0

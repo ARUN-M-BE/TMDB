@@ -1,5 +1,5 @@
 import React from "react";
-import Carddemo from "../../public/carddemo.jpg";
+import Carddemo from "../../public/card1.webp";
 
 function MovieCard() {
   return (
@@ -12,7 +12,7 @@ function MovieCard() {
        
         <div className="flex w-full justify-center bg-black bg-opacity-50 flex-col rounded-b-xl">
           <h1 className="text-lg sm:text-xl font-bold text-white p-2 text-center">
-            Avengers
+          Wicked
           </h1>
         </div>
       </div>
