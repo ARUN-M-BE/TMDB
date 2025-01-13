@@ -1,12 +1,24 @@
 import React from 'react';
 import Banner from './Banner';
+import MovieCard from './MovieCard';
 
 function Movies() {
   return (
+
     <div>
         <Banner />
-        <h1>welcome-to</h1>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
+        <div className='text-lg sm:text-xl text-center items-center font-bold text-black-100 p-2 uppercase'>
+          Trending Movies
+        </div>
+
+        <div className='flex flex-row space-x-4 justify-center overflow-hidden'>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+        </div>
     </div>
   )
 }
