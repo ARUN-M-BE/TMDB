@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Banner from './Banner';
 import MovieCard from './MovieCard';
 import axios from 'axios';
+import Pagenation from './Pagenation';
 
 function Movies() {
 
@@ -26,13 +27,15 @@ function Movies() {
           Trending Movies
         </div>
 
-        <div className='flex flex-row flex-wrap justify-around'>
+        <div className='flex flex-row flex-wrap justify-around px-10 gap-5'>
 
           {movies.map((movieObj) => {
             return <MovieCard poster_path={movieObj.poster_path} name={movieObj.original_title}/>
           })}
 
         </div>
+
+        <Pagenation />
     </div>
   )
 }
