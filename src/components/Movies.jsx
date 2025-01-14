@@ -25,10 +25,10 @@ function Movies() {
           Trending Movies
         </div>
 
-        <div className='flex flex-row space-x-4 justify-center overflow-hidden'>
+        <div className='flex flex-row flex-wrap justify-around'>
 
           {Movies.map((MovieObj) => {
-            return <MovieCard key={MovieObj.id} movie={MovieObj} />
+            return <MovieCard />
           })}
 
         </div>

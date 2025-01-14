@@ -3,7 +3,7 @@ import Carddemo from "../../public/card1.webp";
 
 function MovieCard() {
   return (
-    <div className="p-4 flex flex-col items-center space-y-4">
+    <div className=" flex flex-col justify-between p-4">
       
       <div
         className="h-[30vh] sm:h-[40vh] w-[90vw] sm:w-[200px] bg-cover flex items-end rounded-xl hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
