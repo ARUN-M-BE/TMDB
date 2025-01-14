@@ -6,11 +6,12 @@ import axios from 'axios';
 function Movies() {
 
 
-  const [Movies, setMovies] = React.useState([])
+  const [movies, setMovies] = React.useState([])
   useEffect(() => {
-    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=026742c0cb24d10234fab1c2fe497205&language=en-US&page=1')
-    .then((response) => {
-      setMovies(response.data.results)
+    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=026742c0cb24d10234fab1c2fe497205&language=en-US&page=1`)
+    .then((res) => {
+      setMovies(res.data.results)
+      console.log(res.data.results)
     })
     .catch((error) => {
       console.error('Error fetching data', error)
@@ -27,8 +28,8 @@ function Movies() {
 
         <div className='flex flex-row flex-wrap justify-around'>
 
-          {Movies.map((MovieObj) => {
-            return <MovieCard />
+          {movies.map((movieObj) => {
+            return <MovieCard poster_path={movieObj.poster_path} name={movieObj.original_title}/>
           })}
 
         </div>
