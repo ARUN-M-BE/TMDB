@@ -3,10 +3,10 @@ import React from "react";
 
 function MovieCard({poster_path, name}) {
   return (
-    <div className=" flex flex-col justify-between p-4">
+    <div className="flex flex-col justify-center">
       
       <div
-        className="h-[30vh] sm:h-[40vh] w-[90vw] sm:w-[200px] bg-cover flex items-end rounded-xl hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
+        className="h-[50vh] sm:h-[300px] w-[50vw] sm:w-[200px] bg-cover flex items-end rounded-xl hover:cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out"
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${poster_path})` }}
       >
        
