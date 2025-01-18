@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 import axios from "axios";
 import Pagenation from "./Pagenation";
 
-function Movies() {
+function Movies({ handleAddWatchList, handleRemoveWatchList, watchlist }) {
   const [movies, setMovies] = React.useState([]);
   const [pageNo, setPageNo] = React.useState(1);
 
@@ -34,8 +34,11 @@ function Movies() {
       });
   }, [pageNo]);
   return (
-    <div>
-      <Banner />
+    <>
+      <div>
+        <Banner />
+      </div>
+      
       <div className="text-lg sm:text-xl text-center items-center font-bold text-black-100 p-6 mt-4 uppercase">
         Trending Movies
       </div>
@@ -44,20 +47,26 @@ function Movies() {
           {movies.map((movieObj) => {
             return (
               <MovieCard
+                key={movieObj.id}
+                movieObj={movieObj}
                 poster_path={movieObj.poster_path}
                 name={movieObj.original_title}
+                handleAddWatchList={handleAddWatchList}
+                handleRemoveWatchList={handleRemoveWatchList}
+                watchlist={watchlist}
               />
             );
           })}
         </div>
       </div>
-
-      <Pagenation
-        pageNo={pageNo}
-        handleNext={handleNext}
-        handlePrev={handlePrev}
-      />
-    </div>
+      <div>
+        <Pagenation
+          pageNo={pageNo}
+          handleNext={handleNext}
+          handlePrev={handlePrev}
+        />
+      </div>
+    </>
   );
 }
 

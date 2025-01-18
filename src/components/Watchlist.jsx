@@ -4,7 +4,6 @@ import moviecard from '../assets/card1.webp';
 function Watchlist() {
   return (
     <>
-      {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center m-4 gap-4 font-bold">
         <div className="bg-blue-400 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105">
           All Movies
@@ -14,7 +13,6 @@ function Watchlist() {
         </div>
       </div>
 
-      {/* Search Bar */}
       <div className="flex justify-center my-4">
         <input
           type="search"
@@ -23,7 +21,6 @@ function Watchlist() {
         />
       </div>
 
-      {/* Movie Table */}
       <div className="rounded-lg overflow-hidden border border-gray-500 m-4 md:m-8">
         <div className="overflow-x-auto">
           <table className="w-full text-center text-sm md:text-base">
@@ -70,6 +67,6 @@ function Watchlist() {
       </div>
     </>
   );
-}
+};
 
 export default Watchlist;
