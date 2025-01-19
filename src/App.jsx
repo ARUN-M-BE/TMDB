@@ -23,15 +23,16 @@ function App() {
   let handleRemoveWatchList = (movieObj) => {
     let newWatchlist = watchlist.filter((movie) => movie.id !== movieObj.id);
     setWatchlist(newWatchlist);
+    localStorage.setItem("movieList", JSON.stringify(newWatchlist));
   };
 
   useEffect(() => {
     let data = localStorage.getItem("movieList");
     if (!data) {
-      return
+      return;
     }
     setWatchlist(JSON.parse(data));
-  }, []); 
+  }, []);
 
   return (
     <>
@@ -55,6 +56,7 @@ function App() {
               <Watchlist
                 watchlist={watchlist}
                 setWatchlist={setWatchlist}
+                handleRemoveWatchList={handleRemoveWatchList}
               />
             }
           />

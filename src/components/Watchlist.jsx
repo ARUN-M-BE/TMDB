@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import moviecard from "../assets/card1.webp";
+import genreId from './Gener';
 
-function Watchlist({ watchlist, setWatchlist }) {
+function Watchlist({ watchlist, setWatchlist, handleRemoveWatchList }) {
   const [search, setSearch] = React.useState("");
+  const [genrelist, setGenreList] = React.useState(['All genre']);
+  const [currGenre, setCurrGenre] = React.useState('All Genre');
 
   let handleSearch = (e) => {
     setSearch(e.target.value);
+  };
+
+  let handleFilter = (genreId) => {
+    setCurrGenre(genreId);
   };
 
   let sortIncreasing = () => {
@@ -22,19 +29,23 @@ function Watchlist({ watchlist, setWatchlist }) {
     setWatchlist([...sortedDecreas])
   }
 
-  const handleDelete = () => {
-    console.log("delete");
-  };
+  useEffect(()=>{
+    let top = watchlist.map((movieObj)=>{
+      return genreId[movieObj.genre_ids[0]]
+    })
+    top = new Set(top)
+    setGenreList(['All Genre', ...top])
+  } ,[watchlist])
 
   return (
     <>
       <div className="flex flex-wrap justify-center m-4 gap-4 font-bold">
-        <div className="bg-blue-400 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105">
-          All Movies
+        {genrelist.map((genreId)=>{
+          return <div onClick={()=> handleFilter(genreId)} className={currGenre==genreId ? "bg-blue-400 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105" : "bg-blue-200 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105"}>
+          {genreId}
         </div>
-        <div className="bg-blue-200 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105">
-          Animation
-        </div>
+        })}
+        
       </div>
 
       <div className="flex justify-center my-4">
@@ -65,8 +76,13 @@ function Watchlist({ watchlist, setWatchlist }) {
               </tr>
             </thead>
             <tbody>
-              {watchlist
-                .filter((movieObj) => {
+              {watchlist.filter((movieObj)=>{
+                if (currGenre=='All Genre'){
+                  return true
+                }else {
+                  return genreId[movieObj.genre_ids[0]]==currGenre;
+                }
+              }).filter((movieObj) => {
                   return movieObj.title
                     .toLowerCase()
                     .includes(search.toLocaleLowerCase());
@@ -93,11 +109,11 @@ function Watchlist({ watchlist, setWatchlist }) {
                         <div>{movieObj.release_date}</div>
                       </td>
                       <td className="border-r-2 p-2 md:p-4">
-                        <div>{movieObj.genre_ids.length}</div>
+                        <div>{genreId[movieObj.genre_ids[0]]}</div>
                       </td>
                       <td className="p-2 md:p-4">
                         <button
-                          onClick={handleDelete}
+                          onClick={()=>handleRemoveWatchList(movieObj)}
                           className="text-red-800 px-2 py-1 md:px-4 md:py-2 bg-gray-300 rounded-lg font-semibold hover:bg-red-800 hover:text-white"
                         >
                           Delete
