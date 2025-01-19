@@ -54,6 +54,7 @@ function App() {
             element={
               <Watchlist
                 watchlist={watchlist}
+                setWatchlist={setWatchlist}
               />
             }
           />
