@@ -7,7 +7,6 @@ function Footer() {
       <div className="bg-gray-900 text-gray-400 py-8">
         <div className="container mx-auto px-4 lg:px-8 ">
           <div className=" flex flex-wrap justify-center items-start space-x-12 gap-12">
-            {/* Logo Section (col-6) */}
             <div className="col-6 mb-6 text-center ">
               <img
                 src={logo}
@@ -19,7 +18,6 @@ function Footer() {
               </p>
             </div>
 
-            {/* Movies Section (col-3) */}
             <div className="col-3 mb-6 text-center">
               <h3 className="text-gray-200 text-xl font-semibold mb-4">
                 Movies
@@ -32,7 +30,6 @@ function Footer() {
               </ul>
             </div>
 
-            {/* Follow Us Section (col-3) */}
             <div className="col-3 mb-6 text-center">
               <h3 className="text-gray-200 text-xl font-semibold mb-4">
                 Follow Us
@@ -83,7 +80,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom Section */}
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm">
           <p>
             &copy; {new Date().getFullYear()} TMDB-REACT. All rights reserved.
