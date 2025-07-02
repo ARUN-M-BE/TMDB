@@ -41,7 +41,7 @@ function Watchlist({ watchlist, setWatchlist, handleRemoveWatchList }) {
     <>
       <div className="flex flex-wrap justify-center m-4 gap-4 font-bold">
         {genrelist.map((genreId)=>{
-          return <div onClick={()=> handleFilter(genreId)} className={currGenre==genreId ? "bg-blue-400 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105" : "bg-blue-200 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105"}>
+          return <div onClick={()=> handleFilter( )} className={currGenre==genreId ? "bg-blue-400 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105" : "bg-blue-200 w-[9rem] h-[3rem] text-center py-3 rounded-xl hover:cursor-pointer duration-100 transition-transform hover:scale-105"}>
           {genreId}
         </div>
         })}
